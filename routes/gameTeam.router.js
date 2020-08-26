@@ -10,7 +10,7 @@ const {
 // get all
 router.get("/", getAll);
 // get one game team
-router.get("/gt", getOne);
+router.get("/:id", getOne);
 // new Game team
 router.post("/new", create);
 // update game team
