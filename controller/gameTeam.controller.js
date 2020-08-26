@@ -20,8 +20,8 @@ const getAll = async (req, res) => {
 
 // get one
 const getOne = async (req, res) => {
-    await GameTeam.findAll({
-        where: { TeamId: req.body.TeamId, GameId: req.body.GameId },
+    await GameTeam.findByPk(req.params.id, {
+        include: [Team, Game],
     })
         .then((gameteam) => res.send(gameteam))
         .catch((error) => res.send(error));
